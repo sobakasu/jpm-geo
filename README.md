@@ -1,4 +1,4 @@
-# JpmGeo
+# Jpm::Geo
 
 Computes the bounding coordinates of all points on the surface of a sphere that have a great circle distance to the given point. This code was ported to ruby directly from http://janmatuschek.de/LatitudeLongitudeBoundingCoordinates, and is owned by Jan Philip Matuschek.
 
@@ -24,22 +24,22 @@ Or install it yourself as:
 
 ```
 # use miles as a distance unit (default is kilometers)
-JpmGeo.units = 'm'
+Jpm::Geo.units = 'm'
 
 # specify default radius (default is Earth kilometers)
-JpmGeo.radius = 3389.5 # Mars radius (km)
+Jpm::Geo.radius = 3389.5 # Mars radius (km)
 ```
 
 ### Creating points
 ```
 # lonlat is an object that responds to 'lon' and 'lat' methods
-point = JpmGeo::Point.from_lonlat(lonlat) 
+point = Jpm::Geo::Point.from_lonlat(lonlat) 
 
 # from degrees
-point = JpmGeo::Point.from_degrees(lat: 51.50853, lon: -0.12574) # London
+point = Jpm::Geo::Point.from_degrees(lat: 51.50853, lon: -0.12574) # London
 
 # from radians
-point = JpmGeo::Point.from_radians(lat: 0.8990, lon: -0.0022) # London (ish)
+point = Jpm::Geo::Point.from_radians(lat: 0.8990, lon: -0.0022) # London (ish)
 
 # converting to/from radians/degrees
 point = point.to_radians
@@ -70,4 +70,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the JpmGeo project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/sobakasu/jpm-geo/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Jpm::Geo project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/sobakasu/jpm-geo/blob/master/CODE_OF_CONDUCT.md).

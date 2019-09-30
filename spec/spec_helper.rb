@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "bundler/setup"
-require "jpm_geo"
+require "jpm/geo"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

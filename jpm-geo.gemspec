@@ -2,11 +2,11 @@
 
 lib = File.expand_path("lib", __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "jpm_geo/version"
+require "jpm/geo/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "jpm-geo"
-  spec.version       = JpmGeo::VERSION
+  spec.version       = Jpm::Geo::VERSION
   spec.authors       = ["Andrew Williams"]
   spec.email         = ["sobakasu@gmail.com"]
 
