@@ -20,11 +20,44 @@ Or install it yourself as:
 
 ## Usage
 
+### Configuration
+
+```
+# use miles as a distance unit (default is kilometers)
+JpmGeo.units = 'm'
+
+# specify default radius (default is Earth kilometers)
+JpmGeo.radius = 3389.5 # Mars radius (km)
+```
+
+### Creating points
 ```
 # lonlat is an object that responds to 'lon' and 'lat' methods
 point = JpmGeo::Point.from_lonlat(lonlat) 
+
+# from degrees
+point = JpmGeo::Point.from_degrees(lat: 51.50853, lon: -0.12574) # London
+
+# from radians
+point = JpmGeo::Point.from_radians(lat: 0.8990, lon: -0.0022) # London (ish)
+
+# converting to/from radians/degrees
+point = point.to_radians
+point = point.to_degrees
+```
+
+### Finding distance between points
+
+```
+# distance is in the same units as radius
+distance = point.distance_to(point2)
+```
+
+### Finding bounding coordinates
+
+```
 bounds = point.bounds(100) # km
-p [bounds.min.lat, bounds.min.lon, bounds.max.lat, bounds.max.lon]
+p [bounds[0].lat, bounds[0].lon, bounds[1].lat, bounds[1].lon]
 ```
 
 ## Contributing

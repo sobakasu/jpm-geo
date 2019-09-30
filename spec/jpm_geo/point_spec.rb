@@ -19,6 +19,10 @@ RSpec.describe JpmGeo::Point do
   let(:point_north_pole) { subject.from_lonlat(lonlat_north_pole) }
   let(:point_somosomo) { subject.from_lonlat(lonlat_somosomo) }
 
+  before(:each) do
+    JpmGeo.units = 'km'
+  end
+
   context "#initialize" do
     let(:lonlat_deg) { lonlat(-74.04455, 40.689604) }
     let(:lonlat_rad) { lonlat(-1.2923211906575673, 0.7101675611326549) }
@@ -46,6 +50,18 @@ RSpec.describe JpmGeo::Point do
 
     it "throws an error if longitude is out of bounds" do
       expect { subject.from_degrees(lon: 200, lat: lonlat_deg.lat) }.to raise_error(ArgumentError)
+    end
+
+    it "uses the units defined in JpmGeo" do
+      JpmGeo.units = 'm'
+      point = subject.from_degrees(lon: 70, lat: 40)
+      expect(point.radius).to eq(3963.19) # miles
+    end
+
+    it "uses the radius defined in JpmGeo" do
+      JpmGeo.radius = 3963.19
+      point = subject.from_degrees(lon: 70, lat: 40)
+      expect(point.radius).to eq(3963.19) # miles
     end
   end
 

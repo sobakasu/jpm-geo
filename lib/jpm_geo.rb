@@ -16,7 +16,7 @@ module JpmGeo
     end
 
     def units=(units)
-      raise ArgumentError, "invalid units" unless units && %w[km m].includes?(units.to_s)
+      raise ArgumentError, "invalid units" unless units && %w[km m].include?(units.to_s)
 
       @units = units
       @radius = units == "km" ? EARTH_RADIUS_KM : EARTH_RADIUS_M
