@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Jpm::Geo::Point do
+RSpec.describe JpmGeo::Point do
   let(:subject) { described_class }
 
   let(:lonlat_sydney) { lonlat(151.209900, -33.865143) }
@@ -20,7 +20,7 @@ RSpec.describe Jpm::Geo::Point do
   let(:point_somosomo) { subject.from_lonlat(lonlat_somosomo) }
 
   before(:each) do
-    Jpm::Geo.units = "km"
+    JpmGeo.units = "km"
   end
 
   context "#initialize" do
@@ -52,14 +52,14 @@ RSpec.describe Jpm::Geo::Point do
       expect { subject.from_degrees(lon: 200, lat: lonlat_deg.lat) }.to raise_error(ArgumentError)
     end
 
-    it "uses the units defined in Jpm::Geo" do
-      Jpm::Geo.units = "m"
+    it "uses the units defined in JpmGeo" do
+      JpmGeo.units = "m"
       point = subject.from_degrees(lon: 70, lat: 40)
       expect(point.radius).to eq(3963.19) # miles
     end
 
-    it "uses the radius defined in Jpm::Geo" do
-      Jpm::Geo.radius = 3963.19
+    it "uses the radius defined in JpmGeo" do
+      JpmGeo.radius = 3963.19
       point = subject.from_degrees(lon: 70, lat: 40)
       expect(point.radius).to eq(3963.19) # miles
     end

@@ -2,5 +2,5 @@
 
 source "https://rubygems.org"
 
-# Specify your gem's dependencies in jpm-geo.gemspec
+# Specify your gem's dependencies in jpm_geo.gemspec
 gemspec

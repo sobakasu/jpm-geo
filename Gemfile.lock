@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    jpm-geo (0.1.0)
+    jpm_geo (0.1.1)
 
 GEM
   remote: https://rubygems.org/
@@ -28,7 +28,7 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 2.0)
-  jpm-geo!
+  jpm_geo!
   rake (~> 10.0)
   rspec (~> 3.0)
 
